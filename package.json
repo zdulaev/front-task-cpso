@@ -37,6 +37,9 @@
         "typescript": "^4.3.5"
     },
     "dependencies": {
-        "bootstrap": "^5.2.1"
+        "bootstrap": "^5.2.1",
+        "jquery": "^3.6.1",
+        "jquery-validation": "^1.19.5",
+        "jquery.maskedinput": "^1.4.1"
     }
 }

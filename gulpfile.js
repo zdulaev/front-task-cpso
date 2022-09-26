@@ -14,15 +14,18 @@ const del = require('del')
 const paths = {
     html: {
         src: ['src/*.html', 'src/*.pug'],
-        dest: 'dist/'
+        dest: 'dist/',
+        watch: ['src/**/*.html', 'src/**/*.pug']
     },
     styles: {
         src: ['src/styles/main.scss'],
-        dest: 'dist/css/'
+        dest: 'dist/css/',
+        watch: ['src/styles/*']
     },
     scripts: {
         src: ['src/scripts/main.js'],
-        dest: 'dist/js/'
+        dest: 'dist/js/',
+        watch: ['src/scripts/*']
     }
 }
 
@@ -85,10 +88,10 @@ function watch() {
             baseDir: "./dist"
         }
     })
-    gulp.watch(paths.html.dest).on('change', browsersync.reload)
-    gulp.watch(paths.html.src, html)
-    gulp.watch(paths.styles.src, styles)
-    gulp.watch(paths.scripts.src, scripts)
+    // gulp.watch(paths.html.watch).on('change', browsersync.reload)
+    gulp.watch(paths.html.watch, html).on('change', browsersync.reload)
+    gulp.watch(paths.styles.watch, styles).on('change', browsersync.reload)
+    gulp.watch(paths.scripts.watch, scripts).on('change', browsersync.reload)
 }
 
 // Таски для ручного запуска с помощью gulp clean, gulp html и т.д.
